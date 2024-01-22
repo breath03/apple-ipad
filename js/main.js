@@ -50,9 +50,12 @@ function showSearch() {
   document.documentElement.classList.add('fixed');
   headerMenuEls.reverse().forEach(function(el, index) {
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'
-});
+  });
 };
 function hideSearch() {
   headerEl.classList.remove('searching');
   document.documentElement.classList.remove('fixed');
+  headerMenuEls.reverse().forEach(function(el, index) {
+    el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'
+  });
 };
