@@ -35,15 +35,18 @@ function hideBasket() {
 
 // 검색!
 const headerEl = document.querySelector('header');
+// ...(전개 연산자)를 이용한 얕은 복사라고 한다. querySelectorAll로 찾은 값들을 배열로 담아주는 역할을 함(?)
 const headerMenuEls = [...document.querySelectorAll('ul.menu > li')]
 const searchWrapEl = headerEl.querySelector('.search-wrap');
 const searchStarterEl = headerEl.querySelector('.search-starter');
 const searchCloserEl = searchWrapEl.querySelector('.search-closer');
-const searchshadowEl = searchWrapEl.querySelector('.shadow');
+const searchShadowEl = searchWrapEl.querySelector('.shadow');
+const searchInputEl = searchWrapEl.querySelector('input');
+const searchDelayEls = [...searchWrapEl.querySelectorAll('li')]
 
 searchStarterEl.addEventListener('click', showSearch);
 searchCloserEl.addEventListener('click', hideSearch);
-searchshadowEl.addEventListener('click', hideSearch);
+searchShadowEl.addEventListener('click', hideSearch);
 
 function showSearch() {
   headerEl.classList.add('searching');
@@ -51,6 +54,14 @@ function showSearch() {
   headerMenuEls.reverse().forEach(function(el, index) {
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'
   });
+  searchDelayEls.forEach(function(el, index) {
+    el.style.transitionDelay = index * .4 / searchDelayEls.length + 's'
+  });
+  // setTimeout이라는 함수를 사용해서 위에서 실행되는 애니메이션처리를 다 끝낸후에 원하는 처리를 할 수 있게 만든다.
+  // -> setTimeout이라는 함수를 쓰지않을 경우에는 원하는 동작이 실행되지 않는다.  
+  setTimeout(function() {
+    searchInputEl.focus();
+  }, 600);
 };
 function hideSearch() {
   headerEl.classList.remove('searching');
@@ -58,4 +69,10 @@ function hideSearch() {
   headerMenuEls.reverse().forEach(function(el, index) {
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'
   });
+  searchDelayEls.reverse().forEach(function(el, index) {
+    el.style.transitionDelay = index * .4 / searchDelayEls.length + 's'
+  });
+  searchDelayEls.reverse();
+  // 해당 input의 내용에 입력했던 값을 지워주기!
+  searchInputEl.value = '';
 };

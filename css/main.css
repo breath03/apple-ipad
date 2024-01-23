@@ -142,7 +142,11 @@ header .search-wrap {
   top: 0;
   left: 0;
   width: 100%;
-  display: none;
+  /* 애니매이션 처리로 안보이게 하기 위해서는 display값이 아닌 visibility값을 줘야 한다. */
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  transition: .4s;
 }
 header .search {
   max-width: 680px;
@@ -224,10 +228,31 @@ header .search .autocompletes ul li:hover a {
   background-color: #F5F5F5;
   color: #0071E3;
 }
+
+header .search input,
+header .search .serach-icon,
+header .search .autocompletes h3,
+header .search .autocompletes li {
+  transition: .6s;
+  transform: translate(100px, 0);
+}
+
 header.searching ul.menu > li {
   transform: scale(.7);
   opacity: 0;
 }
 header.searching .search-wrap {
-  display: block;
+  /* 위에 search-wrap에 해당하는 css에서 display 값이 아니라 visibility값으로 설정을 했기 때문에
+  여기서도 display값이 아닌 visibility값으로 처리한다. */
+  /* display: block; */
+  visibility: visible;
+  opacity: 1;
+  transition-delay: .2s;
+}
+header.searching .search input,
+header.searching .search .serach-icon,
+header.searching .search .autocompletes h3,
+header.searching .search .autocompletes li {
+  transition-delay: .2s;
+  transform: translate(0, 0);
 }
