@@ -17,6 +17,30 @@ a {
   text-decoration: none;
 }
 
+/* Btn */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  font-size: 11px;
+  line-height: 1;
+  color: #FFF;
+  background-color: #0071E3;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: .7;
+}
+.btn:focus {
+  /* box-shadow: x축, y축, blur값, spread, 색상; */
+  box-shadow: 0 0 0 4px #81B9F1;
+}
+
 
 
 
@@ -255,4 +279,56 @@ header.searching .search .autocompletes h3,
 header.searching .search .autocompletes li {
   transition-delay: .2s;
   transform: translate(0, 0);
+}
+
+
+
+
+/* Navigation */
+nav {
+  background-color: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #D2D2D2;
+  /* position값을 sticky(끈적끈적한)로 주게되면 밑에서 입력한 top: 0;에 맞춰서 스크롤을 내릴때 화면에 고정이된다. 
+  물론 부모요소의 범위 안에서만 가능하다.  */
+  position: sticky;
+  top: 0;
+  z-index: 8;
+}
+nav .inner {
+  max-width: 1000px;
+  height: 52px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+nav h1 {
+  flex-grow: 1;
+  font-size: 22px;
+  font-weight: 500;
+}
+nav .menu {
+  display: flex;
+  /* gap이라는 속성은 컨텐츠 사이사이의 넓이를 의미한다. */
+  gap: 12px;
+  margin-right: 18px;
+}
+nav .menu li {
+
+}
+nav .menu li a {
+  /* 인라인 요소에서는 margin과 padding값을 줘도 적용이 안된다. 그래서 block으로 변경해야함. */
+  display: block;
+  padding: 6px;
+  font-size: 11px;
+}
+nav .menu li:hover a {
+  color: #0071E3;
+}
+nav .menu li.active a {
+  opacity: .5;
+  cursor: default;
+}
+nav .menu li.active:hover a {
+  color: #1D1D1D;
 }
