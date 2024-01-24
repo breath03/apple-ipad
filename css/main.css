@@ -28,6 +28,8 @@ a {
   border-radius: 100px;
   outline: none;
   font-size: 11px;
+  /* line-height는 줄 간격을 의미한다. 
+  -> 줄 간격이란 텍스트가 한 줄에서 다음 줄로 넘어갈 때 각 줄 간에 설정되는 공간 */
   line-height: 1;
   color: #FFF;
   background-color: #0071E3;
@@ -331,4 +333,48 @@ nav .menu li.active a {
 }
 nav .menu li.active:hover a {
   color: #1D1D1D;
+}
+
+
+
+
+/* Hero */
+.hero {
+
+}
+.hero .inner {
+
+}
+.hero h1 {
+
+}
+.hero figure {
+
+}
+.hero figure img {
+
+}
+.hero figure figcaption {
+
+}
+.hero figure figcaption .caption-camera {
+
+}
+.hero figure figcaption .caption-chip {
+
+}
+.hero figure figcaption .caption-storage {
+
+}
+.hero h2 {
+
+}
+.hero p.pricing {
+
+}
+.hero p.description {
+
+}
+.hero .links {
+  
 }
