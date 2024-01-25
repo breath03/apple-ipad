@@ -1,3 +1,20 @@
+html {
+  /* css에서 사용할 값을 변수로 선언해서 사용할 수 있다.
+  -> --변수이름: 변수의 값;
+  -> 변수를 사용할 수 있는 영역은 본인과 본인의 자식요소들에만 변수를 사용할 수 있음
+  -> 변수를 사용할때에는 var(--변수이름); 이렇게 사용하면 된다.   */
+  --color-white: #FFF;
+  --color-black: #000;
+  --color-font: #1D1D1D;
+  --color-font-darkgray: #6E6E6E;
+  --color-font-lightgray: #F5F5F5;
+  --color-link: #0071E3;
+  --color-link-focus: #81B9F1;
+  --color-border: #D2D2D2;
+  --color-header: #3A3A3A;
+  --color-section: #F5F5F5;
+  --color-shadow: rgba(0, 0, 0, .4);
+}
 html.fixed {
   position: fixed;
   overflow-y: scroll;
@@ -10,11 +27,31 @@ body {
   font-family: "Roboto", "Noto Sans KR", sans-serif;
   /* 한글단어가 끊어져서 줄이 바뀌는걸 막아주기 위한 옵션이 word-break: keep-all 이다.  */
   word-break: keep-all;
-  color: #1D1D1D;
+  /* css변수로 color의 값을 정한 것 */
+  color: var(--color-font);
 }
 a {
-  color: #1D1D1D;
+  color: var(--color-font);
   text-decoration: none;
+}
+img {
+  display: block;
+  user-select: none;
+  /* user-drag라는 키워드를 -webkit-이라는 공급업체 접두사를 사용하여 값을 부여해준다. */
+  -webkit-user-drag: none;
+}
+/* p태그는 구문을 나타낼때 쓰는 태그이다. */
+p {
+  /* line-height의 값은 글의 줄과 줄 사이의 간격(?)의 정도를 의미한다.(?) */
+  line-height: 1.6;
+}
+
+/* Inner */
+.inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
 }
 
 /* Btn */
@@ -31,8 +68,8 @@ a {
   /* line-height는 줄 간격을 의미한다. 
   -> 줄 간격이란 텍스트가 한 줄에서 다음 줄로 넘어갈 때 각 줄 간에 설정되는 공간 */
   line-height: 1;
-  color: #FFF;
-  background-color: #0071E3;
+  color: var(--color-white);
+  background-color: var(--color-link);
   cursor: pointer;
 }
 .btn:hover {
@@ -40,7 +77,53 @@ a {
 }
 .btn:focus {
   /* box-shadow: x축, y축, blur값, spread, 색상; */
-  box-shadow: 0 0 0 4px #81B9F1;
+  box-shadow: 0 0 0 4px var(--color-link-focus);
+}
+
+/* Background image text */
+.bgtext {
+  display: block;
+  /* text가 실제로는 있지만 필요하지 않고 구조적으로만 있을때 실제로는 이미지로 사용될 때
+  -> text-indent값을 -9999를 줘서 보이지 않게 만드는 방법 */
+  text-indent: -9999px;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: contain;은 이미지를 자르거나 늘리지 않고 컨테이너 내에서 이미지 크기를 최대한 크게 조정하는 것 */
+  background-size: contain;
+}
+
+/* Links */
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+a.link {
+  color: var(--color-link);
+  font-size: 19px;
+  line-height: 1.3;
+}
+a.link:hover {
+  text-decoration: underline;
+}
+a.link::after {
+  content: " >";
+}
+
+/* Figures */
+.figures {
+  position: relative;
+}
+.figures figure,
+.figures figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.figures figcaption * {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 
@@ -48,15 +131,18 @@ a {
 
 /* Header */
 header {
-  background-color: #3A3A3A;
+  /* header에서 사용하는 높이 값을 변수로 지정해서 사용한다.
+  -> 나중에 header의 높이를 변경할 때 이 변수의 값만 변경하면 모든 header요소들의 높이값이 변경되는 장점이 있다. */
+  --header-height: 44px;
+  background-color: var(--color-header);
+  position: relative;
+  z-index: 9;
 }
 header .inner {
   max-width: 1020px;
-  margin: 0 auto;
-  position: relative;
 }
 header ul.menu {
-  height: 44px;
+  height: var(--header-height);
   display: flex;
   justify-content: space-between;
 }
@@ -71,7 +157,7 @@ header ul.menu > li > a {
   font-size: 11px;
   display: flex;
   align-items: center;
-  color: #F5F5F5;
+  color: var(--color-font-lightgray);
   opacity: .8;
   text-decoration: none;
 }
@@ -101,10 +187,10 @@ header ul.menu > li > a:hover {
 header .basket {
   width: 290px;
   padding: 10px 20px;
-  border: 1px solid #D2D2D2;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--color-white);
   position: absolute;
   top: calc(100% + 4px);
   right: -6px;
@@ -131,8 +217,8 @@ header .basket .arrow::before {
   content: "";
   width: 12px;
   height: 12px;
-  border: 1px solid #D2D2D2;
-  background-color: #FFF;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
   transform: rotate(45deg);
   transform-origin: 0 0;
   position: absolute;
@@ -149,13 +235,13 @@ header .basket ul {
   margin-top: 10px;
 }
 header .basket ul li {
-  border-top: 1px solid #D2D2D2;
+  border-top: 1px solid var(--color-border);
 }
 header .basket ul li a {
   display: block;
   padding: 14px;
   font-size: 13px;
-  color: #0071E3;
+  color: var(--color-link);
 }
 header .basket ul li a:hover {
   text-decoration: underline;
@@ -185,14 +271,14 @@ header .search .shadow {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: var(--color-shadow);
 }
 header .search .textfield {
   position: relative;
 }
 header .search input {
   width: 100%;
-  height: 44px;
+  height: var(--header-height);
   padding: 0 40px;
   border: none;
   outline: none;
@@ -200,11 +286,11 @@ header .search input {
   /* 색상에 transparent값을 넣게 되면 투명한 색상을 의미한다. */
   background-color: transparent;
   font-size: 17px;
-  color: #FFF;
+  color: var(--color-white);
 }
 header .search .search-icon {
   width: 40px;
-  height: 44px;
+  height: var(--header-height);
   background-image: url("../images/header_search.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -215,7 +301,7 @@ header .search .search-icon {
 }
 header .search .search-closer {
   width: 40px;
-  height: 44px;
+  height: var(--header-height);
   background-image: url("../images/header_close.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -233,14 +319,14 @@ header .search .autocompletes {
   padding: 26px 40px 20px;
   border-radius: 0 0 18px 18px;
   box-sizing: border-box;
-  background-color: #FFF;
+  background-color: var(--color-white);
   position: absolute;
-  top: 44px;
+  top: var(--header-height);
   left: 0;
 }
 header .search .autocompletes h3 {
   font-size: 12px;
-  color: #6E6E6E;
+  color: var(--color-font-darkgray);
   margin-bottom: 12px;
 }
 header .search .autocompletes ul li a {
@@ -251,8 +337,8 @@ header .search .autocompletes ul li a {
   cursor: pointer;
 }
 header .search .autocompletes ul li:hover a {
-  background-color: #F5F5F5;
-  color: #0071E3;
+  background-color: var(--color-section);
+  color: var(--color-link);
 }
 
 header .search input,
@@ -290,7 +376,7 @@ header.searching .search .autocompletes li {
 nav {
   background-color: rgba(255, 255, 255, .7);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid #D2D2D2;
+  border-bottom: 1px solid var(--color-border);
   /* position값을 sticky(끈적끈적한)로 주게되면 밑에서 입력한 top: 0;에 맞춰서 스크롤을 내릴때 화면에 고정이된다. 
   물론 부모요소의 범위 안에서만 가능하다.  */
   position: sticky;
@@ -300,7 +386,6 @@ nav {
 nav .inner {
   max-width: 1000px;
   height: 52px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
 }
@@ -315,9 +400,6 @@ nav .menu {
   gap: 12px;
   margin-right: 18px;
 }
-nav .menu li {
-
-}
 nav .menu li a {
   /* 인라인 요소에서는 margin과 padding값을 줘도 적용이 안된다. 그래서 block으로 변경해야함. */
   display: block;
@@ -325,14 +407,14 @@ nav .menu li a {
   font-size: 11px;
 }
 nav .menu li:hover a {
-  color: #0071E3;
+  color: var(--color-link);
 }
 nav .menu li.active a {
   opacity: .5;
   cursor: default;
 }
 nav .menu li.active:hover a {
-  color: #1D1D1D;
+  color: var(--color-font);
 }
 
 
@@ -340,41 +422,117 @@ nav .menu li.active:hover a {
 
 /* Hero */
 .hero {
-
+  background-color: var(--color-section);
 }
 .hero .inner {
-
+  padding-bottom: 110px;
 }
 .hero h1 {
-
+  width: 221px;
+  height: 91px;
+  background-image: url("../images/hero_ipad_text.png");
+  position: absolute;
+  transform: translate(624px, 235px);
+  z-index: 1;
+}
+.hero .figures {
+  height: 808px;
 }
 .hero figure {
-
-}
-.hero figure img {
-
-}
-.hero figure figcaption {
-
+  /* transform: translate(x축, y축); */
+  transform: translate(74px, -64px);
 }
 .hero figure figcaption .caption-camera {
-
+  width: 120px;
+  height: 84px;
+  background-image: url("../images/hero_ipad_caption_camera.png");
+  transform: translate(43px, 580px);
 }
 .hero figure figcaption .caption-chip {
-
+  width: 95px;
+  height: 42px;
+  background-image: url("../images/hero_ipad_caption_chip.png");
+  transform: translate(589px, 510px);
 }
 .hero figure figcaption .caption-storage {
-
+  width: 80px;
+  height: 42px;
+  background-image: url("../images/hero_ipad_caption_storage.png");
+  transform: translate(627px, 631px);
 }
 .hero h2 {
-
+  width: 738px;
+  height: 145px;
+  /* margin: 0 auto로 가운데 정렬을 하기 위해서는 
+  -> 정렬하려는 컨텐츠의 가로길이 값이 명시가 되어져있어야 가운데정렬이 가능하다. */
+  margin: 0 auto;
+  background-image: url("../images/hero_headline.png");
 }
 .hero p.pricing {
-
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
 }
 .hero p.description {
-
+  /* 여기서 width의 값을 88%로 따로 지정한 이유는
+  -> description이라는 p태그의 내용에서 화면에 맞춰서 자연스럽게 "함께할 수 있도록" 부분에서 줄바꿈 처리를 하기 위해서 입니다.
+  -> br태그를 사용하지 않아도 이렇게 글자의 줄바꿈처리를 따로 할 수 있다. */
+  width: 88%;
+  margin: 18px auto 0;
+  font-size: 19px;
+  text-align: center;
 }
 .hero .links {
-  
+  margin-top: 30px;
+}
+
+
+
+
+/* Power */
+.power {
+  margin-top: 110px;
+}
+/* Power / Multiple Apps */
+.power .multiple-apps h1 {
+  width: 500px;
+  height: 280px;
+  background-image: url("../images/power_headline.png");
+  transform: translate(104px, 0);
+}
+.power .multiple-apps .figures {
+  height: 773px;
+}
+.power .multiple-apps figcaption {
+  width: 138px;
+  height: 46px;
+  background-image: url("../images/power_multiple_apps_caption.png");
+  transform: translate(703px, -47px);
+}
+/* Power / Arcade */
+.power .arcade {
+
+}
+.power .arcade .figures {
+
+}
+.power .arcade figure {
+
+}
+.power .arcade figcaption {
+
+}
+/* Power / Create */
+.power .create {
+
+}
+.power .create .figures {
+
+}
+.power .create figure {
+
+}
+.power .create figcaption {
+
 }
