@@ -110,8 +110,14 @@ a.link::after {
   content: " >";
 }
 
+/* Feature */
+.feature {
+  display: flex;
+}
+
 /* Figures */
 .figures {
+  flex-grow: 1;
   position: relative;
 }
 .figures figure,
@@ -129,11 +135,15 @@ a.link::after {
 /* Infos */
 .infos {
   display: flex;
+  position: relative;
+  /* z-index는 position값이 있어야지만 적용가능 */
+  z-index: 1;
   /* flex-direction의 기본값은 row(수평)이 주축이다.
   -> column으로 값을 바꾸면 주축이 row(수평)에서 column(수직)으로 바뀐다.  */
   flex-direction: column;
 }
-/* -- 하이픈 두번은 BEM */
+/* -- 하이픈 두번은 BEM
+-> BEM은 상태를 의미하는 것 */
 .infos.infos--center {
   justify-content: center;
 }
@@ -141,13 +151,19 @@ a.link::after {
   justify-content: flex-end;
 }
 .info {
-
+  max-width: 330px;
+  margin-bottom: 24px;
 }
 .info .icon {
-
+  width: 100px;
+  height: 100px;
+  margin: 0 0 -15px -30px;
+  background-image: url("../images/sprite_apps.png");
 }
 .info p {
-
+  font-size: 21.5px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 
@@ -536,27 +552,33 @@ nav .menu li.active:hover a {
 }
 /* Power / Arcade */
 .power .arcade {
-
+  margin-top: 55px;
 }
 .power .arcade .figures {
-
+  height: 600px;
 }
 .power .arcade figure {
-
+  transform: translate(-347px, -90px);
 }
 .power .arcade figcaption {
-
+  width: 150px;
+  height: 77px;
+  background-image: url("../images/power_arcade_caption.png");
+  transform: translate(483px, 653px);
 }
 /* Power / Create */
 .power .create {
-
+  margin-top: 55px;
 }
 .power .create .figures {
-
+  height: 772px;
 }
 .power .create figure {
-
+  transform: translate(-25px, 50px);
 }
 .power .create figcaption {
-
+  width: 142px;
+  height: 46px;
+  background-image: url("../images/power_create_caption.png");
+  transform: translate(543px, 908px);
 }
