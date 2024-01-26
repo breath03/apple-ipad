@@ -126,6 +126,30 @@ a.link::after {
   left: 0;
 }
 
+/* Infos */
+.infos {
+  display: flex;
+  /* flex-direction의 기본값은 row(수평)이 주축이다.
+  -> column으로 값을 바꾸면 주축이 row(수평)에서 column(수직)으로 바뀐다.  */
+  flex-direction: column;
+}
+/* -- 하이픈 두번은 BEM */
+.infos.infos--center {
+  justify-content: center;
+}
+.infos.infos--end {
+  justify-content: flex-end;
+}
+.info {
+
+}
+.info .icon {
+
+}
+.info p {
+
+}
+
 
 
 
