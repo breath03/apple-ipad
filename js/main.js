@@ -76,3 +76,22 @@ function hideSearch() {
   // 해당 input의 내용에 입력했던 값을 지워주기!
   searchInputEl.value = '';
 };
+
+
+
+
+// 요소의 가시성 관찰
+// IntersectionObserver함수 = 현재의 영역에 원하는 컨텐츠가 있는지 확인할 수 있는 함수이다. 
+const io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if(!entry.isIntersecting) {
+      return
+    }
+    // entry.target으로 보이는 요소를 찾은 것 -> 찾은거에 이어서 함수들을 실행한 것
+    entry.target.classList.add('show')
+  })
+})
+const infoEls = document.querySelectorAll('.info')
+infoEls.forEach(function(el) {
+  io.observe(el)
+})
