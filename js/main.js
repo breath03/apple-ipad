@@ -95,3 +95,8 @@ const infoEls = document.querySelectorAll('.info')
 infoEls.forEach(function(el) {
   io.observe(el)
 })
+
+
+
+
+// 비디오 재생!
