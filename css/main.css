@@ -161,6 +161,9 @@ a.link::after {
   transform: translate(0, 0);
   opacity: 1;
 }
+.infos--large .info {
+  max-width: 410px;
+}
 .info .icon {
   width: 100px;
   height: 100px;
@@ -203,6 +206,13 @@ a.link::after {
   font-weight: 600;
   line-height: 1.5;
 }
+.info a.link {
+  /* display값을 block으로 하는 이유는 a태그는 인라인 요소이기때문에 margin값이 적용되지 않는다.
+  그렇기 때문에 마진값을 적용시킬려면 a태그를 block으로 바꿔줘야한다. */
+  display: block;
+  margin-top: 44px;
+  font-size: 19.5px;
+}
 
 
 
@@ -222,6 +232,8 @@ header .inner {
 header ul.menu {
   height: var(--header-height);
   display: flex;
+  /* space-between은 컨텐츠를 정렬하는 방법중 하나로 첫번째와 마지막 요소의 사이에 균등하게 배치하는 것(?)
+  -> 자세한건 justify-content mdn 참조 */
   justify-content: space-between;
 }
 /* li부분에 display가 flex이고 a태그부분의 display 또한 flex이기 때문에 a태그의 영역의 height부분이 늘어날 수 있다.  */
@@ -741,6 +753,140 @@ nav .menu li.active:hover a {
   height: 47px;
   background-image: url("../images/camera_edit_caption.png");
   transform: translate(27px, 905px);
+}
+
+
+
+
+/* Wireless */
+.wireless {
+  margin-top: 202px;
+}
+/* Wireless / Facetime */
+.wireless .facetime h1 {
+  width: 730px;
+  height: 330px;
+  background-image: url("../images/wireless_headline.png");
+  transform: translate(104px, 0);
+}
+.wireless .facetime .figures {
+  height: 773px;
+}
+.wireless .facetime figure {
+  transform: translate(-68px, 0);
+}
+.wireless .facetime figcaption {
+  width: 139px;
+  height: 46px;
+  background-image: url("../images/wireless_facetime_caption.png");
+  transform: translate(843px, -49px);
+}
+/* Wireless / Files */
+.wireless .files figure {
+  transform: translate(34px, -34px);
+}
+.wireless .files figcaption {
+  width: 127px;
+  height: 46px;
+  background-image: url("../images/wireless_files_caption.png");
+  transform: translate(96px, 639px);
+}
+
+
+
+
+/* Accessories */
+.accessories {
+  margin-top: 195px;
+}
+.accessories h1 {
+  width: 550px;
+  height: 343px;
+  background-image: url("../images/accessories_headline.png");
+  margin: 0 auto;
+}
+.accessories .figures {
+  height: 1021px;
+  margin-top: 34px;
+}
+.accessories figure {
+  transform: translate(-24px, 0);
+}
+.accessories figcaption .caption-memo {
+  width: 169px;
+  height: 41px;
+  background-image: url("../images/accessories_caption_memo.png");
+  transform: translate(790px, -52px);
+}
+.accessories figcaption .caption-supports {
+  width: 200px;
+  height: 70px;
+  background-image: url("../images/accessories_caption_supports.png");
+  transform: translate(163px, 821px);
+}
+.accessories .infos {
+  flex-direction: row;
+  /* flex-wrap은 요소들이 강제로 한줄에 배치되게 할 것인지, 
+  또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것인지 결정하는 속성이다. */
+  flex-wrap: wrap;
+  /* space-around는 컨텐츠의 옆공간에 모든 컨텐츠들이 동일하게 공간을 가지고 정렬이 되는 것
+  -> justify-content mdn 참조 */
+  justify-content: space-around;
+}
+
+
+
+
+/* iPadOs */
+.ipados {
+  margin-top: 212px;
+}
+.ipados h1 {
+  width: 530px;
+  height: 400px;
+  margin: 0 auto;
+  background-image: url("../images/ipados_headline.png");
+}
+.ipados .infos {
+  margin-top: 44px;
+  /* 지금 infos의 주축은 column이기 때문에 해당 infos의 값을 오른쪽으로 보내기 위해서는 수직을 컨트롤하는 주축이 아니라
+  수평을 컨트롤하는 교차축(align-items)의 값을 flex-end로 오른쪽 끝에 배치한다. */
+  align-items: flex-end;
+}
+.ipados .figures {
+  height: 782px;
+  display: flex;
+}
+.ipados .figures > div {
+  flex-grow: 1;
+  position: relative;
+}
+.ipados .figure-split-view figure {
+  transform: translate(-205px, -314px);
+} 
+.ipados .figure-split-view figcaption {
+  width: 163px;
+  height: 53px;
+  background-image: url("../images/ipados_split_view_caption.png");
+  transform: translate(200px, -38px);
+} 
+.ipados .figure-widgets figure {
+  transform: translate(237px, 43px);
+}
+.ipados .figure-widgets figcaption {
+  width: 161px;
+  height: 46px;
+  background-image: url("../images/ipados_widgets_caption.png");
+  transform: translate(257px, 497px);
+}
+.ipados .figure-quick-note figure {
+  transform: translate(-625px, 232px);
+}
+.ipads .figure-quick-note figcaption {
+  width: 82px;
+  height: 97px;
+  background-image: url("../images/ipados_quick_note_caption.png");
+  transform: translate(511px, 470px);
 }
 
 
