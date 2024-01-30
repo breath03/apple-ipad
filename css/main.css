@@ -892,6 +892,62 @@ nav .menu li.active:hover a {
 
 
 
+/* Apps */
+.apps {
+  margin-top: 368px;
+}
+.apps h1 {
+  width: 500px;
+  height: 264px;
+  background-image: url("../images/apps_headline.png");
+  transform: translate(17px, 0);
+}
+.apps .infos {
+  margin-top: 36px;
+  margin-left: 82px;
+}
+.apps .figures {
+  display: flex;
+  height: 788px;
+}
+.apps .figures > div {
+  flex-grow: 1;
+  position: relative;
+}
+.apps .figure-masterclass figure {
+
+}
+.apps .figure-masterclass figcaption {
+
+}
+.apps .figure-adobe figure {
+
+}
+.apps .figure-adobe figcaption {
+
+}
+.apps .figure-fantasian figure {
+
+}
+.apps .figure-fantasian figcaption {
+
+}
+.apps .figure-books figure {
+
+}
+.apps .figure-books figcaption {
+  
+}
+.apps .figure-goodnotes figure {
+
+}
+.apps .figure-goodnotes figcaption {
+  
+}
+
+
+
+
 /* @keyframes라고 표기후 애니메이션을 만들어 사용하는 것
 keyframes규칙에 맞춰서 애니메이션을 정의 하고 그 애니메이션을 다른 css태그에서 animation태그의 값에서 사용하는 것 */
 @keyframes sprite-icon {
