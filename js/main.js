@@ -1,3 +1,9 @@
+// 해당 경로에서 파일을 가져와 ipads라는 변수(?)같은 개념으로 사용할 수 있게 하는 것(?) 
+import ipads from '../data/ipads.js'
+
+
+
+
 // 장바구니!
 
 const basketstarterEl = document.querySelector('header .basket-starter');
@@ -113,4 +119,29 @@ pauseBtn.addEventListener('click', function() {
   video.pause()
   playBtn.classList.remove('hide')
   pauseBtn.classList.add('hide')
+})
+
+
+
+
+// '당신에게 맞는 iPad는?' 랜더링!
+const itemsEl = document.querySelector('section.compare .items')
+ipads.forEach(function(ipad) {
+  const itemEl = document.createElement('div')
+  itemEl.classList.add('item')
+  itemEl.innerHTML = /* html */ `
+  <div class="thumbnail">
+    <img src="${ipad.thmbnail}" alt="${ipad.name}">
+  </div>
+  <ul class="colors">
+
+  </ul>
+  <h3 class="name">${ipad.name}</h3>
+  <p class="tagline">${ipad.tagline}</p>
+  <p class="price">${ipad.price}</p>
+  <button class="btn">구입하기</button>
+  <a href="${ipad.url}" class="link">더 알아보기</a>
+  `
+
+  itemsEl.append(itemEl)
 })

@@ -217,6 +217,38 @@ a.link::after {
 
 
 
+/* Whitebox */
+.whitebox {
+  max-width: 1386px;
+  margin: 0 auto;
+  padding: 100px 30px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background-color: var(--color-white);
+}
+.whitebox.whitebox--transparent {
+  background-color: transparent;
+}
+.whitebox .icon {
+  margin-bottom: 20px;
+}
+.whitebox h1 {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.whitebox p {
+  margin-top: 20px;
+  font-size: 19px;
+}
+.whitebox a.link {
+  display: block;
+  margin-top: 26px;
+}
+
+
+
+
 /* Header */
 header {
   /* header에서 사용하는 높이 값을 변수로 지정해서 사용한다.
@@ -915,33 +947,218 @@ nav .menu li.active:hover a {
   position: relative;
 }
 .apps .figure-masterclass figure {
-
+  transform: translate(578px, -431px);
 }
 .apps .figure-masterclass figcaption {
-
+  width: 100px;
+  height: 25px;
+  background-image: url("../images/apps_masterclass_caption.png");
+  transform: translate(26px, 690px);
 }
 .apps .figure-adobe figure {
-
+  transform: translate(-515px, 85px);
 }
 .apps .figure-adobe figcaption {
-
+  width: 105px;
+  height: 24px;
+  background-image: url("../images/apps_adobe_caption.png");
+  transform: translate(544px, 514px);
 }
 .apps .figure-fantasian figure {
-
+  transform: translate(-103px, 318px);
 }
 .apps .figure-fantasian figcaption {
-
+  width: 74px;
+  height: 22px;
+  background-image: url("../images/apps_fantasian_caption.png");
+  transform: translate(24px, 483px);
 }
 .apps .figure-books figure {
-
+  transform: translate(-133px, -150px);
 }
 .apps .figure-books figcaption {
-  
+  width: 50px;
+  height: 27px;
+  background-image: url("../images/apps_books_caption.png");
+  transform: translate(397px, 707px);
 }
 .apps .figure-goodnotes figure {
-
+  transform: translate(-93px, 68px);
 }
 .apps .figure-goodnotes figcaption {
+  width: 99px;
+  height: 26px;
+  background-image: url("../images/apps_goodnotes_caption.png");
+  transform: translate(24px, 690px);
+}
+/* Privacy */
+.privacy {
+  margin-top: 238px;
+}
+.privacy h1 {
+  width: 482px;
+  height: 237px;
+  /* margin-left값을 auto로 주게 되면 왼쪽의 공간이 최대한 늘어나려고 하기 때문에 컨텐츠가 오른쪽에 위치하게 된다. */
+  margin-left: auto;
+  background-image: url("../images/privacy_headline.png");
+  position: relative;
+  z-index: 1;
+  transform: translate(57px, 0);
+}
+.privacy .infos {
+  margin-top: 38px;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+.privacy figure {
+  transform: translate(-215px, -500px);
+}
+.privacy figcaption .figcaption-apple-id {
+  width: 170px;
+  height: 26px;
+  background-image: url("../images/privacy_caption_apple_id.png");
+  transform: translate(195px, -13px);
+}
+.privacy figcaption .figcaption-touch-id {
+  width: 150px;
+  height: 31px;
+  background-image: url("../images/privacy_caption_touch_id.png");
+  transform: translate(533px, 485px);
+}
+
+
+
+
+/* Accessibility */
+.accessibility {
+  margin-top: 266px;
+  margin-bottom: 170px;
+}
+.accessibility h1 {
+  width: 384px;
+  height: 270px;
+  background-image: url("../images/accessibility_headline.png");
+}
+.accessibility .infos {
+  margin-top: 20px;
+}
+.accessibility figure {
+  transform: translate(470px, -620px);
+}
+
+
+
+
+/* AR */
+.ar {
+  background-color: var(--color-section);
+  padding: 20px 20px 0;
+}
+.ar .whitebox {
+  padding-bottom: 0;
+}
+.ar .inner {
+  display: flex;
+}
+.ar .inner > div {
+  max-width: 410px;
+  margin-top: 60px;
+  margin-right: 90px;
+}
+
+
+
+
+/* Environment */
+.environment {
+  padding: 20px 20px 0;
+  background-color: var(--color-section);
+  text-align: center;
+}
+.environment .icon {
+  /* margin값을 사용하게 되면 공통스타일로 whitebox의 margin-bottom값이 덮어쓰게 되면서 적용이 되지 않는다.
+  그렇기 때문에 margin값으로 처리 하지않고 margin-left와 margin-right의 값을 지정해서 넣어준다. */
+  /* margin: 0 auto; -> x */
+  margin-left: auto;
+  margin-right: auto;
+}
+.environment h1 {
+  color: #03A10E;
+}
+
+
+
+
+/* Accessory Shop */
+.accessory-shop {
+  background-color: var(--color-section);
+  text-align: center;
+}
+.accessory-shop .whitebox {
+  padding-bottom: 0;
+}
+.accessory-shop .inner {
+  /* margin: 0 auto;로 이미지의 위치가 가운데 정렬이 되지 않는 이유는 이미지의 크기가 이미지의 상위요소인
+  inner의 width크기보다 더 크기 때문이다. 그렇기 때문에 display를 flex로 바꿔서 가운데 정렬을 해야한다.  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.accessory-shop img {
+  margin-top: 50px;
+}
+
+
+
+
+/* Trade */
+.trade {
+  padding: 20px 20px 0;
+  background-color: var(--color-section);
+  text-align: center;
+}
+
+
+
+
+/* Compare */
+.compare {
+  padding: 20px 20px 0;
+  background-color: var(--color-section);
+  text-align: center;
+}
+.compare .items {
+  display: flex;
+  justify-content: space-around;
+  max-width: 940px;
+  margin: 68px auto 74px;
+}
+.compare .item {
+
+}
+.compare .item .thumbnail {
+
+}
+.compare .item ul.colors {
+
+}
+.compare .item ul.colors li {
+
+}
+.compare .item h3.name {
+
+}
+.compare .item .tagline {
+
+}
+.compare .item .price {
+
+}
+.compare .item .btn {
+
+}
+.compare .item a.link {
   
 }
 
