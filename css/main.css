@@ -45,6 +45,16 @@ p {
   /* line-height의 값은 글의 줄과 줄 사이의 간격(?)의 정도를 의미한다.(?) */
   line-height: 1.6;
 }
+sup {
+  margin-right: 6px;
+  /* 부모요소의 폰트사이즈에서 받아온 사이즈의 비율단위를 em이라고 함 
+  -> 부모폰트사이즈에서 70%의 비율의 크기로 지정한 것이 .7em 이다.  */
+  font-size: .7em;
+  /* vertical-align: top; 이라는 속성은 글자의 수직 정렬을 위에 붙여서 보여줄 수 있게 설정한 것
+  -> 해당 sup(슈퍼스크립트)이 fontsize가 작아졌기 때문에 수직정렬을 원래크기의 글씨에 
+  위쪽 부분에 맞춰서 보여주기 위한 것 */
+  vertical-align: top;
+}
 
 /* Inner */
 .inner {
@@ -537,6 +547,14 @@ nav .menu li.active a {
 }
 nav .menu li.active:hover a {
   color: var(--color-font);
+}
+
+
+
+
+/* Main */
+main {
+  overflow-x: hidden;
 }
 
 
@@ -1135,31 +1153,207 @@ nav .menu li.active:hover a {
   margin: 68px auto 74px;
 }
 .compare .item {
-
+  width: 190px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid var(--color-border);
 }
 .compare .item .thumbnail {
-
+  height: 214px;
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 .compare .item ul.colors {
-
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
 }
 .compare .item ul.colors li {
-
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: lightgray;
+  /* box-shadow는 원래 박스부분의 바깥부분에 그림자가 생기지만 
+  inset이라는 키워드를 추가하면 box안에 그림자가 생기게 된다. */
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, .1);
 }
 .compare .item h3.name {
-
+  margin-bottom: 4px;
+  font-size: 22px;
 }
 .compare .item .tagline {
-
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 .compare .item .price {
-
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 .compare .item .btn {
-
+  margin: 0 auto 14px;
 }
 .compare .item a.link {
-  
+  font-size: 14px;
+}
+
+
+
+
+/* Footer */
+footer {
+  background-color: var(--color-section);
+}
+/* Footer / Buy Info */
+footer .buy-info {
+  padding: 76px 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  text-align: center;
+}
+footer .buy-info .icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 10px;
+}
+footer .buy-info h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+footer .buy-info p {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+footer .buy-info a.link {
+  font-size: 14px;
+}
+/* Footer / Warning */
+footer .warning {
+  padding: 18px 0 10px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+footer .warning ol {
+  /* 처음에 css의 기본 스타일을 전부 reset했기 때문에 따로 ol태그에 숫자가 나타날 수 있도록 css에서 설정을 해줘야 한다.
+  -> 그래서 list-style의 값을 decimal로 10진수 숫자를 나타날 수 있게 한 것 */
+  list-style: decimal;
+  padding-left: 16px;
+}
+footer .warning li {
+  margin-bottom: 10px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-font-darkgray);
+}
+/* Footer / Breadcrumbs */
+footer .breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+footer .breadcrumbs a {
+  font-size: 12px;
+  color: var(--color-font-darkgray);
+  position: relative;
+}
+footer .breadcrumbs a.apple-logo {
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/path_apple.svg");
+}
+footer .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+footer .breadcrumbs a::after {
+  content: "";
+  width: 8px;
+  height: 18px;
+  background-image: url("../images/path_div.svg");
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -18px;
+  margin: auto;
+}
+footer .breadcrumbs a:last-child::after {
+  display: none;
+}
+/* Footer / Navigations */
+footer .navigations {
+  margin-bottom: 40px;
+  height: 344px;
+  display: flex;
+  flex-direction: column;
+  /* 컨텐츠가 해당 공간을 넘으면 줄바꿈을 하는지 하지않는지를 설정하는 것이
+  -> flex-wrap속성이고 wrap은 줄바꿈을 하는 것이다.  */
+  flex-wrap: wrap;
+  /* align-items는 하나의 교차축에서의 조건을 설정하는 것이면
+  align-content는 여러교차축에서의 조건을 설정할때 사용하는 것이다. */
+  align-content: space-between;
+}
+footer .navigations .map {
+  margin-top: 24px;
+}
+footer .navigations .map:nth-child(6) {
+  padding-bottom: 100px;
+}
+footer .navigations .map h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+footer .navigations .map li {
+  margin-top: 12px;
+  font-size: 12px;
+}
+footer .navigations .map li a {
+  color: var(--color-font-darkgray);
+}
+footer .navigations .map li a:hover {
+  text-decoration: underline;
+}
+footer .how-to-shop {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-font-darkgray);
+}
+footer .how-to-shop a {
+  color: var(--color-link);
+}
+footer .how-to-shop a:hover {
+  text-decoration: underline;
+}
+footer .legal {
+  margin-top: 10px;
+  padding: 10px 0 40px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: 50px;
+  font-size: 12px;
+  color: var(--color-font-darkgray);
+}
+footer .legal ul {
+  flex-grow: 1;
+  display: flex;
+  gap: 21px;
+}
+footer .legal ul li {
+  position: relative;
+}
+footer .legal ul li::after {
+  content: "|";
+  position: absolute;
+  right: -11px;
+  color: var(--color-border);
+}
+footer .legal ul li:last-child::after {
+  display: none;
+}
+footer .legal ul li:hover a {
+  text-decoration: underline;
 }
 
 

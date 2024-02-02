@@ -1,5 +1,6 @@
 // 해당 경로에서 파일을 가져와 ipads라는 변수(?)같은 개념으로 사용할 수 있게 하는 것(?) 
 import ipads from '../data/ipads.js'
+import navigations from '../data/navigations.js'
 
 
 
@@ -124,24 +125,65 @@ pauseBtn.addEventListener('click', function() {
 
 
 
+// ****************************************************************************************
 // '당신에게 맞는 iPad는?' 랜더링!
 const itemsEl = document.querySelector('section.compare .items')
 ipads.forEach(function(ipad) {
   const itemEl = document.createElement('div')
   itemEl.classList.add('item')
+
+  let colorList = ''
+  ipad.colors.forEach(function(color) {
+    colorList += `<li style="background-color: ${color};"></li>`
+  })
+
   itemEl.innerHTML = /* html */ `
   <div class="thumbnail">
     <img src="${ipad.thmbnail}" alt="${ipad.name}">
   </div>
   <ul class="colors">
-
+    ${colorList}
   </ul>
   <h3 class="name">${ipad.name}</h3>
   <p class="tagline">${ipad.tagline}</p>
-  <p class="price">${ipad.price}</p>
+  <!-- .toLocaleString('en-US') 은 en-US에서 사용하는 숫자처리 방식과 같이 표현해주겠다는 뜻이다. -->
+  <p class="price">₩${ipad.price.toLocaleString('en-US')}부터</p>
   <button class="btn">구입하기</button>
   <a href="${ipad.url}" class="link">더 알아보기</a>
   `
 
   itemsEl.append(itemEl)
 })
+
+
+
+
+const navigationsEl = document.querySelector('footer .navigations')
+navigations.forEach(function(nav) {
+  const mapEl = document.createElement('div')
+  mapEl.classList.add('map')
+
+  let mapList = ''
+  nav.maps.forEach(function(map) {
+    mapList += /* html */ `<li>
+      <a href="${map.url}">${map.name}</a>
+    </li>`
+  })
+
+  mapEl.innerHTML = /* html */ `
+    <h3>
+      <span class="text">${nav.title}</span>
+    </h3>
+    <ul>
+      ${mapList}
+    </ul>
+  `
+
+  navigationsEl.append(mapEl)
+})
+
+
+
+
+const thisYearEl = document.querySelector('span.this-year')
+thisYearEl.textContent = new Date().getFullYear()
