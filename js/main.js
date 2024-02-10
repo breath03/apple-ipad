@@ -141,14 +141,30 @@ window.addEventListener('resize', function() {
 //
 const navEl = document.querySelector('nav')
 const navMenuTogglerEl = navEl.querySelector('.menu-toggler')
+const navMenuShadowEl = navEl.querySelector('.shadow')
 
 navMenuTogglerEl.addEventListener('click', function() {
   if(navEl.classList.contains('menuing')) {
-    navEl.classList.remove('menuing')
+    hideNavMenu()
   }else {
-    navEl.classList.add('menuing')
+    showNavMenu()
   }
 })
+// nav요소를 클릭했을때 window영역까지 올라가는 버블링(?)을 막기위한 것
+navEl.addEventListener('click', function(event) {
+  event.stopPropagation()
+})
+navMenuShadowEl.addEventListener('click', function() {
+  hideNavMenu()
+})
+// 위와 같은 function에 하나의 함수만 존재할 경우 밑에의 문장과 같이 줄여서 사용할 수 있음
+window.addEventListener('click', hideNavMenu)
+function showNavMenu() {
+  navEl.classList.add('menuing')
+}
+function hideNavMenu() {
+  navEl.classList.remove('menuing')
+}
 
 
 
