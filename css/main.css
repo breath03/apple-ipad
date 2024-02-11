@@ -252,6 +252,26 @@ a.link::after {
   font-size: 19.5px;
 }
 
+@media (max-width: 1000px) {
+  .info {
+    max-width: 230px;
+  }
+  .infos--large .info {
+    max-width: 288px;
+  }
+  .info .icon {
+    transform: scale(.8);
+    margin: -30px, 0, -24px, -32px;
+  }
+  .info p {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+  .info a.link {
+    margin-top: 24px;
+  }
+}
+
 
 
 
@@ -973,17 +993,17 @@ main {
   .hero figure {
     transform: translate(70px, -24px);
   }
-  .hero .figure img {
+  .hero figure img {
     width: 540px;
   }
-  .hero .figure figcaption .caption-camera {
+  .hero figure figcaption .caption-camera {
     /* scale함수를 사용해서 80퍼센트의 크기로 변환한 것 */
     transform: scale(.8) translate(-9px, 524px);
   }
-  .hero .figure figcaption .caption-chip {
+  .hero figure figcaption .caption-chip {
     transform: scale(.8) translate(510px, 422px);
   }
-  .hero .figure figcaption .caption-storage {
+  .hero figure figcaption .caption-storage {
     transform: scale(.8) translate(556px, 556px);
   }
   .hero h2 {
@@ -1012,16 +1032,16 @@ main {
   .hero figure img {
     width: 337px;
   }
-  .hero .figure figcaption .caption-camera {
+  .hero figure figcaption .caption-camera {
     width: 180px;
     height: 37px;
     background-image: url("../images/hero_ipad_caption_camera_mobile.png");
     transform: scale(1) translate(21px, 368px);
   }
-  .hero .figure figcaption .caption-chip {
+  .hero figure figcaption .caption-chip {
     transform: scale(.8) translate(248px, 42px);
   }
-  .hero .figure figcaption .caption-storage {
+  .hero figure figcaption .caption-storage {
     transform: scale(.8) translate(288px, 168px);
   }
   .hero h2 {
@@ -1092,6 +1112,55 @@ main {
   height: 46px;
   background-image: url("../images/power_create_caption.png");
   transform: translate(543px, 908px);
+}
+
+@media (max-width: 1000px) {
+  .power {
+    margin-top: 80px;
+  }
+  .power .multiple-apps h1 {
+    width: 310px;
+    height: 180px;
+  }
+  .power .multiple-apps .figures {
+    height: 503px;
+  }
+  .power .multiple-apps figure {
+    transform: translate(71px, 0);
+  }
+  .power .multiple-apps figure img {
+    width: 682px;
+  }
+  .power .multiple-apps figcaption {
+    transform: scale(.8) translate(532px, -58px);
+  }
+  .power .arcade {
+    margin-top: 0;
+  }
+  .power .arcade .figures {
+    height: 480px;
+  }
+  .power .arcade figure {
+    transform: translate(-182px, -6px);
+  }
+  .power .arcade figure img {
+    width: 676px;
+  }
+  .power .arcade figcaption {
+    transform: scale(.8) translate(316px, 528px);
+  }
+  .power .create .figures {
+    height: 588px;
+  }
+  .power .create figure {
+    transform: translate(4px, -36px);
+  }
+  .power .create figure img {
+    width: 820px;
+  }
+  .power .create figcaption {
+    transform: scale(.8) translate(420px, 747px);
+  }
 }
 
 
