@@ -255,6 +255,7 @@ navigations.forEach(function(nav) {
   mapEl.innerHTML = /* html */ `
     <h3>
       <span class="text">${nav.title}</span>
+      <span class="icon">+</span>
     </h3>
     <ul>
       ${mapList}
@@ -269,3 +270,16 @@ navigations.forEach(function(nav) {
 
 const thisYearEl = document.querySelector('span.this-year')
 thisYearEl.textContent = new Date().getFullYear()
+
+
+
+
+const mapEls = document.querySelectorAll('footer .navigations .map')
+mapEls.forEach(function(el) {
+  const h3El = el.querySelector('h3')
+  h3El.addEventListener('click', function() {
+    // toggle은 add와 remove를 같이 실행한다고 생각하면된다.
+    // -> active가 있으면 지워주고 없으면 추가해준다.
+    el.classList.toggle('active')
+  })
+})
